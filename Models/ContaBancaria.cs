@@ -22,40 +22,14 @@ namespace Sistema_Bancario.Models
         }
 
 
-        /*public void AcessarConta (int NumeroConta, string SenhaConta, string TipoConta)
-        {   
-            for (int i=0; i<ContasBancarias.Count();i++ )
-            {   
-                if (ContasBancarias[i].Numero == NumeroConta)
-                {
-                    if (ContasBancarias[i].Senha == SenhaConta)
-                    {
-                        Console.WriteLine("Acesso liberado!");
-                        ContaBancaria Acesso = new ContaBancaria();
-                        Acesso = ContasBancarias[i];
-                        Acesso.AbrirMenu(Acesso);
-                    }
-
-                    else
-                    {
-                        Console.WriteLine("Senha Incorreta!");
-                    }
-                }
-
-                else
-                {
-                    Console.WriteLine("Conta não localizada");
-                }
-
-            }
-        }*/
-
         public void AbrirMenu(ContaBancaria Conta)
         {
             int Opc = 0;
+            Console.WriteLine("");
+            Console.WriteLine($"Bem vindo {Conta.NomeProprietario}!");
+
             do
-            {
-                Console.WriteLine($"Bem vindo {Conta.NomeProprietario}!");
+            {   
                 Console.WriteLine("");
                 Console.WriteLine("[1] Verificar saldo");
                 Console.WriteLine("[2] Depositar");
@@ -67,13 +41,13 @@ namespace Sistema_Bancario.Models
                     Console.WriteLine("[5] Verificar Credito");
                 }
 
-                Console.WriteLine("Digite a opção desejada: ");
+                Console.Write("Digite a opção desejada: ");
                 Opc = int.Parse(Console.ReadLine());
 
                 switch (Opc)
                 {
                     case 1:
-                        Console.WriteLine($"O saldo da sua conta é {Conta.Saldo}");
+                        Console.WriteLine($"O saldo da sua conta é de R${Conta.Saldo}");
                         break;
                     case 2:
                         decimal ValorDeposito = 0;
@@ -126,7 +100,7 @@ namespace Sistema_Bancario.Models
             {
                 if (ValoraSaque < Conta.Saldo)
                 {
-                Conta.Saldo = Conta.Saldo - Saldo;
+                Conta.Saldo = Conta.Saldo - ValoraSaque;
                 Console.WriteLine("Saque realizado com sucesso!");
                 }
 
