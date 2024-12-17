@@ -13,6 +13,8 @@ namespace Sistema_Bancario.Models
         public decimal Saldo { get; set; }
         public string TipoConta { get; set; }
 
+        private List<int> NumerosContasBancarias;
+
 
         public int GerarNumeroConta ()
         {
@@ -20,32 +22,7 @@ namespace Sistema_Bancario.Models
         }
 
 
-        public void AbrirConta (string TipoConta, string Nome, string Senha, List<ContaBancaria>ContasBancarias)
-        {
-            ContaBancaria NovaConta = new ContaBancaria();
-
-            NovaConta.NomeProprietario = Nome;
-            NovaConta.Numero = NovaConta.GerarNumeroConta();
-            NovaConta.Senha = Senha;
-            NovaConta.Saldo = 0;
-            NovaConta.TipoConta = TipoConta;
-
-            if (TipoConta.ToLower() == "corrente")
-            {   
-                ContaCorrente NovaContaCorrente = new ContaCorrente();
-                NovaContaCorrente.AbrirContaCorrente(NovaConta, ContasBancarias);
-            }
-
-            else 
-            {
-                ContaPoupanca NovaContaPoupanca = new ContaPoupanca();
-                NovaContaPoupanca.AbrirContaPoupanca(NovaConta, ContasBancarias); 
-            }
-
-        }
-
-
-        public void AcessarConta (int NumeroConta, string SenhaConta, List<ContaBancaria>ContasBancarias)
+        /*public void AcessarConta (int NumeroConta, string SenhaConta, string TipoConta)
         {   
             for (int i=0; i<ContasBancarias.Count();i++ )
             {   
@@ -71,7 +48,7 @@ namespace Sistema_Bancario.Models
                 }
 
             }
-        }
+        }*/
 
         public void AbrirMenu(ContaBancaria Conta)
         {
@@ -111,13 +88,20 @@ namespace Sistema_Bancario.Models
                         Conta.Sacar(Conta, ValorSaque);
                         break;
                     case 4:
-                        Conta.Transferir();
+                        Console.Write("Digite o número da conta que deseja transferir: ");
+                        int NumeroContaDestino = int.Parse(Console.ReadLine());
+
+                        Console.Write("Digite o valor que deseja transferir: ");
+                        decimal ValorTED = decimal.Parse(Console.ReadLine());
+
+
+                        //Conta.Transferir(Conta, NumeroContaDestino, ValorTED);
                         break;
 
                     case 5:
                         ContaCorrente Corrente = new ContaCorrente();
                         Corrente = (ContaCorrente)Conta;
-                        Console.WriteLine(Corrente.Credito);
+                        Console.WriteLine($"Seu crédito atual é de R${Corrente.Credito}");
                         break;                  
 
                     default:
@@ -158,7 +142,7 @@ namespace Sistema_Bancario.Models
         {
             if (ValorDeposito <1)
             {
-                Console.WriteLine("O valor para deposito deve ser maior do que R$0");
+                Console.WriteLine("O valor para deposito deve ser maior do que R$0,00");
             }
 
             else
@@ -168,10 +152,41 @@ namespace Sistema_Bancario.Models
             }
         }
 
-        public void Transferir ()
+        /*public void Transferir (ContaBancaria ContaOrigem, int NumeroContaDestino, decimal ValorTED)
         {
+            if (ValorTED <1)
+            {
+                Console.WriteLine("O valor deve ser maior do que R$0.00");
+            }
+            
+            else if (ValorTED > ContaOrigem.Saldo)
+            {
+                Console.WriteLine("O saldo é insuficiente para realizar essa operação.");
+            }
 
-        }
+            bool ContaLocalizada = false;
+            ContaBancaria ContaDestino = new ContaBancaria();
+            foreach (ContaBancaria item in ContasBancarias)
+            {
+                if (item.Numero == NumeroContaDestino)
+                {
+                    ContaLocalizada = true;
+                    ContaDestino = item;
+                }
+            }
+
+            if (ContaLocalizada ==true)
+            {
+                ContaDestino.Saldo +=ValorTED;
+            }
+
+            else
+            {
+                Console.WriteLine("Conta destino não localizada! ");
+            }
+
+
+        }*/
 
     }
 }

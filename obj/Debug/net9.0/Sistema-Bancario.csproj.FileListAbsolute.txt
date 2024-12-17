@@ -1,0 +1,15 @@
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\bin\Debug\net9.0\Sistema-Bancario.exe
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\bin\Debug\net9.0\Sistema-Bancario.deps.json
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\bin\Debug\net9.0\Sistema-Bancario.runtimeconfig.json
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\bin\Debug\net9.0\Sistema-Bancario.dll
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\bin\Debug\net9.0\Sistema-Bancario.pdb
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\Sistema-Bancario.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\Sistema-Bancario.AssemblyInfoInputs.cache
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\Sistema-Bancario.AssemblyInfo.cs
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\Sistema-Bancario.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\Sistema-Bancario.sourcelink.json
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\Sistema-Bancario.dll
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\refint\Sistema-Bancario.dll
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\Sistema-Bancario.pdb
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\Sistema-Bancario.genruntimeconfig.cache
+C:\Users\Rodrigo\Documents\GitHub\Sistema-Bancario\obj\Debug\net9.0\ref\Sistema-Bancario.dll

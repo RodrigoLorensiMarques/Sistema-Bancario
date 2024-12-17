@@ -7,16 +7,22 @@ namespace Sistema_Bancario.Models
 {
     public class ContaPoupanca :ContaBancaria
     {
-
-
-        
-        public void AbrirContaPoupanca (ContaBancaria ContaGenerica, List<ContaBancaria>ContasBancarias)
-        {   
+        public List<ContaPoupanca> ContasPoupanca { get; set; } = new List<ContaPoupanca>();
+        public void AbrirConta(string Nome, string Senha, string Tipo)
+        {  
             ContaPoupanca NovaContaPoupanca = new ContaPoupanca();
 
-            NovaContaPoupanca = (ContaPoupanca)ContaGenerica;
 
-            ContasBancarias.Add(NovaContaPoupanca);
+
+            NovaContaPoupanca.NomeProprietario = Nome;
+            NovaContaPoupanca.Senha = Senha;
+            NovaContaPoupanca.Numero = NovaContaPoupanca.GerarNumeroConta();
+            NovaContaPoupanca.TipoConta = Tipo;
+            NovaContaPoupanca.Saldo = 0;
+
+            ContasPoupanca.Add(NovaContaPoupanca);
+
+            Console.WriteLine("Conta poupança criada com sucesso!");
 
         }
         
