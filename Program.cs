@@ -1,9 +1,10 @@
 ﻿using Sistema_Bancario.Models;
 
 Console.Clear();
-
 List<ContaCorrente> ContasCorrente = new List<ContaCorrente>();
 List<ContaPoupanca> ContasPoupanca = new List<ContaPoupanca>();
+
+
 
 
 Console.Write("Digite o nome do proprietário: ");
