@@ -8,17 +8,36 @@ namespace Sistema_Bancario.Models
     public class ContaBancaria
     {
         public string NomeProprietario { get; set; }
-        public int Numero { get; set; }
+        public string Numero { get; set; }
         public string Senha { get; set; }
         public decimal Saldo { get; set; }
         public string TipoConta { get; set; }
 
-        private List<int> NumerosContasBancarias;
-
-
-        public int GerarNumeroConta ()
+        public string GerarNumeroConta (List<string> NumerosContasBancarias)
         {
-            return Numero = 0;
+            bool NumeroEmUso = true;
+            string CadeiaGerada = "";
+
+            while (NumeroEmUso)
+            {
+                NumeroEmUso = false;
+
+                Random rnd = new Random();
+                for (int i=0; i<5; i++)
+                {  
+                    int NumeroGerado = rnd.Next(0,9);
+                    CadeiaGerada+= NumeroGerado.ToString() ;
+                }
+
+                if (NumerosContasBancarias.Contains(CadeiaGerada))
+                {
+                    NumeroEmUso = true;
+                }
+            }
+            NumerosContasBancarias.Add(CadeiaGerada);
+
+            Console.WriteLine(NumerosContasBancarias.Count()); 
+            return CadeiaGerada;
         }
 
 
@@ -126,7 +145,7 @@ namespace Sistema_Bancario.Models
             }
         }
 
-        /*public void Transferir (ContaBancaria ContaOrigem, int NumeroContaDestino, decimal ValorTED)
+        /*public void Transferir (ContaBancaria ContaOrigem, string NumeroContaDestino, decimal ValorTED)
         {
             if (ValorTED <1)
             {

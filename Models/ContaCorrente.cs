@@ -11,12 +11,12 @@ namespace Sistema_Bancario.Models
         public List<ContaCorrente> ContasCorrente { get; set; } = new List<ContaCorrente>();
 
 
-        public List<ContaCorrente> AbrirConta(string Nome, string Senha, string Tipo)
+        public List<ContaCorrente> AbrirConta(string Nome, string Senha, string Tipo, List<string> NumerosContasBancarias)
         {   
             ContaCorrente NovaContaCorrente = new ContaCorrente();
             NovaContaCorrente.NomeProprietario = Nome;
             NovaContaCorrente.Senha = Senha;
-            NovaContaCorrente.Numero = NovaContaCorrente.GerarNumeroConta();
+            NovaContaCorrente.Numero = NovaContaCorrente.GerarNumeroConta(NumerosContasBancarias);
             NovaContaCorrente.TipoConta = Tipo;
             NovaContaCorrente.Saldo = 0;
             NovaContaCorrente.Credito = 500;
@@ -35,9 +35,8 @@ namespace Sistema_Bancario.Models
 
         }
 
-        public void AcessarContaCorrente (int NumeroConta, string SenhaConta, string TipoConta, List<ContaCorrente> ContasCorrente)
+        public void AcessarContaCorrente (string NumeroConta, string SenhaConta, string TipoConta, List<ContaCorrente> ContasCorrente)
         {   
-            Console.WriteLine(ContasCorrente.Count());
             for (int i=0; i<ContasCorrente.Count();i++ )
             {   
                 if (ContasCorrente[i].Numero == NumeroConta)
