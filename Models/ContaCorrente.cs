@@ -12,16 +12,43 @@ namespace Sistema_Bancario.Models
             NomeProprietario = nome;
             Senha = senha;
             Numero = numero;
+            TipoConta = "corrente";
+            Credito = 500;
         }
-        public decimal Credito { get; set; } = 500;
 
-        public void UsarCredito()
+        public ContaCorrente ()
         {
 
         }
 
-        
-        
-        
+
+        public decimal Credito { get; set; }
+
+
+        public decimal UsarCredito()
+        {
+            Console.Write("Qual valor de crédito deseja utilizar? ");
+            decimal valor = decimal.Parse(Console.ReadLine());
+
+            if (valor <1)
+            {
+                Console.WriteLine("O valor de deve ser maior que R$0,00 ");
+            }
+
+            else
+            {
+                if (valor < Credito)
+                {
+                Credito = Credito - valor;
+                Console.WriteLine("Crédito utilizado!");
+                }
+
+                else
+                {
+                    Console.WriteLine("O seu crédito é insuficiente para essa operação");
+                }
+            }
+            return Credito;    
+        }   
     }
 }
