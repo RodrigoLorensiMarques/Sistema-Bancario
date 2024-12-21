@@ -10,36 +10,7 @@ namespace Sistema_Bancario.Models
         public string NomeProprietario { get; set; }
         public string Numero { get; set; }
         public string Senha { get; set; }
-        public decimal Saldo { get; set; }
-        public string TipoConta { get; set; }
-
-        public string GerarNumeroConta (List<string> NumerosContasBancarias)
-        {
-            bool NumeroEmUso = true;
-            string CadeiaGerada = "";
-
-            while (NumeroEmUso)
-            {
-                NumeroEmUso = false;
-
-                Random rnd = new Random();
-                for (int i=0; i<5; i++)
-                {  
-                    int NumeroGerado = rnd.Next(0,9);
-                    CadeiaGerada+= NumeroGerado.ToString() ;
-                }
-
-                if (NumerosContasBancarias.Contains(CadeiaGerada))
-                {
-                    NumeroEmUso = true;
-                }
-            }
-            NumerosContasBancarias.Add(CadeiaGerada);
-
-            Console.WriteLine(NumerosContasBancarias.Count()); 
-            return CadeiaGerada;
-        }
-
+        public decimal Saldo { get; set; } = 0;
 
         public void AbrirMenu(ContaBancaria Conta)
         {
@@ -55,7 +26,7 @@ namespace Sistema_Bancario.Models
                 Console.WriteLine("[3] Sacar");
                 Console.WriteLine("[4] Transferir");
 
-                if (Conta.TipoConta == "corrente")
+                //if (Conta.TipoConta == "corrente")
                 {
                     Console.WriteLine("[5] Verificar Credito");
                 }
@@ -92,9 +63,9 @@ namespace Sistema_Bancario.Models
                         break;
 
                     case 5:
-                        ContaCorrente Corrente = new ContaCorrente();
-                        Corrente = (ContaCorrente)Conta;
-                        Console.WriteLine($"Seu crédito atual é de R${Corrente.Credito}");
+                        //ContaCorrente Corrente = new ContaCorrente();
+                        //Corrente = (ContaCorrente)Conta;
+                        //Console.WriteLine($"Seu crédito atual é de R${Corrente.Credito}");
                         break;                  
 
                     default:
